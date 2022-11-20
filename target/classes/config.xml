@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean class="org.example.bean.StudentBean" id="stud1" >
+        <property name="name"><value>satyavan</value></property>
+        <property name="lastname" value="rajbhar"/>
+        <property name="address">
+            <list>
+                <value>thane</value>
+                <value>ghansoli</value>
+                <value>shivai nagar</value>
+                <value>vartak nagar</value>
+            </list>
+        </property>
+        <property name="marks">
+            <map>
+                <entry key="java" value="70"/>
+                <entry key="python" value="60"/>
+                <entry key="iot" value="69"/>
+                <entry key=".net" value="80"/>
+            </map>
+        </property>
+
+        <property name="college" ref="cllg1"/>
+    </bean>
+
+    <bean class="org.example.bean.CollegeBean" id="cllg1" init-method="init" destroy-method="destroy">
+        <constructor-arg type="java.lang.String" index="0">
+            <value>N.K.T.T</value>
+        </constructor-arg>
+        <constructor-arg value="2nd year"/>
+        <constructor-arg type="int" value="124567"/>
+        <constructor-arg value="IT"/>
+    </bean>
+
+    <context:annotation-config/> <!-- to unable the annotation what ever we used -->
+
+
+
+</beans>
